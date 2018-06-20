@@ -43,10 +43,13 @@ import com.mapbox.mapboxandroiddemo.examples.camera.AnimateMapCameraActivity;
 import com.mapbox.mapboxandroiddemo.examples.camera.BoundingBoxCameraActivity;
 import com.mapbox.mapboxandroiddemo.examples.camera.RestrictCameraActivity;
 import com.mapbox.mapboxandroiddemo.examples.dds.AddRainFallStyleActivity;
+import com.mapbox.mapboxandroiddemo.examples.dds.BathymetryActivity;
 import com.mapbox.mapboxandroiddemo.examples.dds.ChoroplethJsonVectorMixActivity;
 import com.mapbox.mapboxandroiddemo.examples.dds.ChoroplethZoomChangeActivity;
 import com.mapbox.mapboxandroiddemo.examples.dds.CreateHotspotsActivity;
+import com.mapbox.mapboxandroiddemo.examples.dds.GeoJsonClusteringActivity;
 import com.mapbox.mapboxandroiddemo.examples.dds.HeatmapActivity;
+import com.mapbox.mapboxandroiddemo.examples.dds.InfoWindowSymbolLayerActivity;
 import com.mapbox.mapboxandroiddemo.examples.dds.MultipleGeometriesActivity;
 import com.mapbox.mapboxandroiddemo.examples.dds.MultipleHeatmapStylingActivity;
 import com.mapbox.mapboxandroiddemo.examples.dds.StyleCirclesCategoricallyActivity;
@@ -80,7 +83,6 @@ import com.mapbox.mapboxandroiddemo.examples.styles.AdjustLayerOpacityActivity;
 import com.mapbox.mapboxandroiddemo.examples.styles.BasicSymbolLayerActivity;
 import com.mapbox.mapboxandroiddemo.examples.styles.ColorSwitcherActivity;
 import com.mapbox.mapboxandroiddemo.examples.styles.DefaultStyleActivity;
-import com.mapbox.mapboxandroiddemo.examples.styles.GeoJsonClusteringActivity;
 import com.mapbox.mapboxandroiddemo.examples.styles.GeojsonLayerInStackActivity;
 import com.mapbox.mapboxandroiddemo.examples.styles.HillShadeActivity;
 import com.mapbox.mapboxandroiddemo.examples.styles.ImageSourceActivity;
@@ -276,12 +278,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
           R.string.activity_styles_symbol_layer_url, false, BuildConfig.MIN_SDK_VERSION));
 
         exampleItemModels.add(new ExampleItemModel(
-          R.string.activity_styles_data_clusters_title,
-          R.string.activity_styles_create_data_cluster_description,
-          new Intent(MainActivity.this, GeoJsonClusteringActivity.class),
-          R.string.activity_styles_create_cluster_data_points_url, false, BuildConfig.MIN_SDK_VERSION));
-
-        exampleItemModels.add(new ExampleItemModel(
           R.string.activity_styles_line_layer_title,
           R.string.activity_styles_line_layer_description,
           new Intent(MainActivity.this, LineLayerActivity.class),
@@ -369,7 +365,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
           R.string.activity_styles_fade_switch_title,
           R.string.activity_styles_fade_switch_description,
           new Intent(MainActivity.this, StyleFadeSwitchActivity.class),
-          R.string.activity_styles_fade_switch_url, true, BuildConfig.MIN_SDK_VERSION
+          R.string.activity_styles_fade_switch_url, false, BuildConfig.MIN_SDK_VERSION));
+
+        exampleItemModels.add(new ExampleItemModel(
+          R.string.activity_styles_fade_switch_title,
+          R.string.activity_styles_fade_switch_description,
+          new Intent(MainActivity.this, StyleFadeSwitchActivity.class),
+          R.string.activity_styles_fade_switch_url, false, BuildConfig.MIN_SDK_VERSION
         ));
         currentCategory = R.id.nav_styles;
         break;
@@ -664,7 +666,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         currentCategory = R.id.nav_lab;
         break;
       case R.id.nav_dds:
-
         exampleItemModels.add(new ExampleItemModel(
           R.string.activity_dds_heatmap_title,
           R.string.activity_dds_heatmap_description,
@@ -676,6 +677,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
           R.string.activity_dds_multiple_heatmap_styling_description,
           new Intent(MainActivity.this, MultipleHeatmapStylingActivity.class),
           R.string.activity_dds_multiple_heatmap_styling_url, false, BuildConfig.MIN_SDK_VERSION));
+
+        exampleItemModels.add(new ExampleItemModel(
+          R.string.activity_dds_bathymetry_title,
+          R.string.activity_dds_bathymetry_description,
+          new Intent(MainActivity.this, BathymetryActivity.class),
+          R.string.activity_dds_bathymetry_url, true, BuildConfig.MIN_SDK_VERSION
+        ));
+
+        exampleItemModels.add(new ExampleItemModel(
+          R.string.activity_styles_dds_geojson_clusters_title,
+          R.string.activity_styles_dds_geojson_clusters_description,
+          new Intent(MainActivity.this, GeoJsonClusteringActivity.class),
+          R.string.activity_styles_dds_geojson_clusters_url, false, BuildConfig.MIN_SDK_VERSION));
 
         exampleItemModels.add(new ExampleItemModel(
           R.string.activity_dds_style_circle_categorically_title,
@@ -718,6 +732,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
           R.string.activity_dds_multiple_geometries_description,
           new Intent(MainActivity.this, MultipleGeometriesActivity.class),
           R.string.activity_dds_multiple_geometries_url, false, BuildConfig.MIN_SDK_VERSION));
+
+        exampleItemModels.add(new ExampleItemModel(
+          R.string.activity_dds_info_window_symbol_layer_title,
+          R.string.activity_dds_info_window_symbol_layer_description,
+          new Intent(MainActivity.this, InfoWindowSymbolLayerActivity.class),
+          R.string.activity_dds_info_window_symbol_layer_url, true, BuildConfig.MIN_SDK_VERSION
+        ));
 
         currentCategory = R.id.nav_dds;
         break;
